@@ -7,6 +7,6 @@
 <title>Yahoo! From JSP</title>
 </head>
 <body>
-my first jsp
+my first jsp ${name} and password is ${password}
 </body>
 </html>
