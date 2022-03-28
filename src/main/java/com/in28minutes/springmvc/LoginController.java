@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.in28minutes.jee.LoginService;
+
 @Controller
 public class LoginController {
 
+	LoginService service = new LoginService();
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 //	@ResponseBody
 	public String showLoginPage() {
@@ -18,6 +22,10 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String handleLoginRequest(@RequestParam String name, @RequestParam String password, ModelMap model) {
+		if (!service.isUserValid(name, password)) {
+			model.put("errorMessage", "invalid credentials");
+			return "login";
+		}
 		model.put("name", name);
 		model.put("password", password);
 		return "welcome";
