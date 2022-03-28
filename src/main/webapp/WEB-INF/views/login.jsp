@@ -11,7 +11,8 @@ my first jsp ${name} and password is ${password}
 </body>
 
 <form action="/login.do" method="post">
-enter your name <input type="text" name="name"/> <input type="submit" value="login"/>
+<p>${errorMessage}</p>
+name: <input type="text" name="name"/>  password: <input type="password" name="password"/> <input type="submit" value="login"/>
 
 </form>
 </html>
