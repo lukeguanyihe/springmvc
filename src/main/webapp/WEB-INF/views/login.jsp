@@ -7,12 +7,11 @@
 <title>Yahoo! From JSP</title>
 </head>
 <body>
-my first jsp ${name} and password is ${password}
+	<p>${errorMessage}</p>
+	<form action="/spring-mvc/login.do" method="post">
+		name: <input type="text" name="name"/>  
+		password: <input type="password" name="password"/> 
+		<input type="submit" value="login"/>
+	</form>
 </body>
-
-<form action="/login.do" method="post">
-<p>${errorMessage}</p>
-name: <input type="text" name="name"/>  password: <input type="password" name="password"/> <input type="submit" value="login"/>
-
-</form>
 </html>
